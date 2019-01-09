@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center"
+    tools:context=".AddActivity">
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#403333"
+    android:text="Add an Offer"
+    android:textAlignment="center"
+    android:textSize="18sp"
+    android:layout_margin="16dp"
+    android:textAppearance="@style/Widget.AppCompat.Toolbar"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_margin="20dp"
+        android:hint="Offer Title"
+        android:inputType="textPersonName"
+        android:maxLength="80"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_margin="20dp"
+        android:maxLength="200"
+        android:hint="Offer description"
+        android:padding="16dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_margin="20dp"
+        android:hint="Offer link"
+        android:padding="16dp"
+        android:inputType="textUri"
+        android:textColor="@android:color/black" />
+    <Button
+        android:layout_below="@id/editText3"
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimary"
+        android:text="submit"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
+</ScrollView>

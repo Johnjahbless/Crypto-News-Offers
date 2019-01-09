@@ -15,6 +15,51 @@
       },
       "oauth_client": [
         {
+          "client_id": "962229545686-ekho7nocthjcdi156eantgp67c9seh5a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.android.june.cryptonewsoffers",
+            "certificate_hash": "d144cf865cd3d37ba5f235cf3e5516b03b8564ad"
+          }
+        },
+        {
+          "client_id": "962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpXUeHcgnhqzwsfWkBoK9ZUKFUqGtARU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-6317011955622736~3267509637"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962229545686:android:3502f4cee13d77a3",
+        "android_client_info": {
+          "package_name": "com.app.android.june.cryptotrackerandconverter"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -35,7 +80,8 @@
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-6317011955622736~4976072891"
     },
     {
       "client_info": {
@@ -162,6 +208,69 @@
         }
       },
       "admob_app_id": "ca-app-pub-6317011955622736~2082249034"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962229545686:android:e8bb5f7457d06f8a",
+        "android_client_info": {
+          "package_name": "com.june"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpXUeHcgnhqzwsfWkBoK9ZUKFUqGtARU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-6317011955622736~6087087978"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962229545686:android:da54ae8b9c1305db",
+        "android_client_info": {
+          "package_name": "june.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpXUeHcgnhqzwsfWkBoK9ZUKFUqGtARU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

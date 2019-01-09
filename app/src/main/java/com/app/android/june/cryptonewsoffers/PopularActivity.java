@@ -9,19 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.app.android.june.cryptonewsoffers.apiData.Client2;
+import com.app.android.june.cryptonewsoffers.apiData.Service2;
+import com.app.android.june.cryptonewsoffers.model.Item2;
+import com.app.android.june.cryptonewsoffers.model.ItemResult2;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.app.android.june.cryptonewsoffers.apiData.Client2;
-import com.app.android.june.cryptonewsoffers.apiData.Service2;
-import com.app.android.june.cryptonewsoffers.model.Item2;
-import com.app.android.june.cryptonewsoffers.model.ItemResult2;
 
 import java.util.List;
 
@@ -31,8 +30,6 @@ import retrofit2.Response;
 
 
 public class PopularActivity extends AppCompatActivity {
-
-    WebView webview;
     AdView mAdView;
     InterstitialAd mInterstitialAd;
     private RecyclerView recyclerView2;
@@ -46,8 +43,7 @@ public class PopularActivity extends AppCompatActivity {
         setContentView(R.layout.activity_popular);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-6317011955622736~3267509637");
+       MobileAds.initialize(getApplicationContext(),"ca-app-pub-6317011955622736~3267509637");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

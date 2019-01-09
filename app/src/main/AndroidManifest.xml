@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.android.june.cryptonewsoffers">
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,14 +12,15 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".DetailActivity"
             android:parentActivityName=".Main2Activity">
@@ -27,16 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main2Activity" />
         </activity>
-        <service android:name=".MyFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name=".MyFirebaseInstanceIdService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
+
         <activity
             android:name=".Main2Activity"
             android:label="@string/app_name"
@@ -47,18 +39,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LatestActivity"
-            android:label="@string/latestnews"/>
-        <activity android:name=".PopularActivity"
-            android:label="@string/popular"/>
-        <activity android:name=".OffersActivity"
-            android:label="@string/offers"/>
+        <activity
+            android:name=".LatestActivity"
+            android:label="@string/latestnews" />
+        <activity
+            android:name=".PopularActivity"
+            android:label="@string/popular" />
+        <activity
+            android:name=".OffersActivity"
+            android:label="@string/offers" />
 
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
+
+        <activity android:name=".SignActivity"
+            android:label="@string/login"/>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ForgotActivity" />
+        <activity android:name=".AddActivity"/>
     </application>
 
 </manifest>

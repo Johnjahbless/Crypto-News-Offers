@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    tools:context=".SignActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:textColor="#403333"/>
+            <TextView
+                android:layout_below="@+id/welcome"
+                android:id="@+id/sigintext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign In to Continue"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="#403333"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <RelativeLayout
+                android:layout_below="@+id/sigintext"
+                android:layout_centerInParent="true"
+                android:id="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:id="@+id/email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/email"
+                                android:layout_marginTop="24dp"/>
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_toEndOf="@id/email"
+                                android:layout_toRightOf="@id/email"
+                                android:layout_height="wrap_content">
+
+
+                                <android.support.design.widget.TextInputEditText
+
+                                    android:textColor="#403333"
+                                    android:textColorHint="#403333"
+                                    android:inputType="textEmailAddress"
+                                    android:id="@+id/email_field"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Email address"
+                                    android:layout_marginTop="10dp"/>
+                            </android.support.design.widget.TextInputLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_marginTop="24dp"
+                                android:id="@+id/password"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/password"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginLeft="15dp"/>
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
+                                app:passwordToggleEnabled="true"
+                                android:layout_toEndOf="@+id/password"
+                                android:layout_toRightOf="@+id/password"
+                                android:layout_height="wrap_content">
+
+                                <android.support.design.widget.TextInputEditText
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:textColor="#403333"
+                                    android:textColorHint="#403333"
+                                    android:inputType="textPassword"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:passwordToggleEnabled="true"
+                                    app:passwordToggleDrawable="@drawable/ic_visibility"
+                                    android:id="@+id/password_field"
+                                    android:hint="Password"/>
+
+                            </android.support.design.widget.TextInputLayout>
+                            </RelativeLayout>
+                    </LinearLayout>
+
+            </RelativeLayout>
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnLogin"
+                android:layout_below="@+id/card"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"/>
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/login_with_google"
+                android:layout_below="@id/btnLogin"
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_below="@+id/login_with_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#403333"
+                        android:text="Don't have an account?"
+                        android:textSize="15sp"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_toEndOf="@+id/textView"
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="#ffffff"
+                        app:cardElevation="10dp"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:id="@+id/btnLoginRegister"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="SIGNUP"
+                            android:textAllCaps="false"
+                            android:padding="5dp"
+                            android:textSize="18sp"/>
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardElevation="10dp"
+                    android:padding="5dp"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:onClick="forgotPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Forgot Password?"
+                        android:textSize="18sp"
+                        android:padding="5dp"
+                        android:textAlignment="center"/>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

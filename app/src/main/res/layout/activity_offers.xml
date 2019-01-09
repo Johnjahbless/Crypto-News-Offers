@@ -1,60 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".OffersActivity">
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/refresh"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context=".OffersActivity">
-        <ScrollView
-            android:layout_marginBottom="40dp"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone"
-                    android:id="@+id/layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            tools:context=".OffersActivity">
+    <ScrollView
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-                    <ImageView
-                        android:layout_centerVertical="true"
-                        android:foregroundGravity="center"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_cloud"/>
+<RelativeLayout
+    android:layout_marginBottom="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                    <WebView
-                        android:id="@+id/wv_test"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </RelativeLayout>
-            </RelativeLayout>
-        </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <include
+        layout="@layout/fab"/>
 
+</RelativeLayout>
+    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="35dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_add"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -66,9 +47,11 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-6317011955622736/2470143729">
-        </com.google.android.gms.ads.AdView>
-    </RelativeLayout>
+            ads:adUnitId="ca-app-pub-6317011955622736/2470143729"/>
+
 </RelativeLayout>
+        </RelativeLayout>
+
+
 
 

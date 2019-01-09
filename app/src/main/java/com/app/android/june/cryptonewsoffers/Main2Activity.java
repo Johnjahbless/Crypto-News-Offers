@@ -3,7 +3,6 @@ package com.app.android.june.cryptonewsoffers;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,15 +21,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.app.android.june.cryptonewsoffers.apiData.Client;
+import com.app.android.june.cryptonewsoffers.apiData.Service;
+import com.app.android.june.cryptonewsoffers.model.Item;
+import com.app.android.june.cryptonewsoffers.model.ItemResult;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.app.android.june.cryptonewsoffers.apiData.Client;
-import com.app.android.june.cryptonewsoffers.apiData.Service;
-import com.app.android.june.cryptonewsoffers.model.Item;
-import com.app.android.june.cryptonewsoffers.model.ItemResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -46,20 +47,26 @@ public class Main2Activity extends AppCompatActivity
     ImageView Disconnected;
     ProgressDialog pd;
     private SwipeRefreshLayout swipeContainer;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        reference = FirebaseDatabase.getInstance().getReference().child("Posts");
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        initViews();
+        //initViews();
         MobileAds.initialize(getApplicationContext(),
                 "ca-app-pub-6317011955622736~3267509637");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        //recyclerView.smoothScrollToPosition(2);
 
         swipeContainer.setColorSchemeResources(android.R.color.holo_orange_dark);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -79,22 +86,20 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        loadJSON();
     }
     private void initViews() {
         pd = new ProgressDialog(this);
         pd.setMessage(getString(R.string.loading));
         pd.setCancelable(false);
         pd.show();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.smoothScrollToPosition(0);
-        loadJSON();
+        //loadJSON();
     }
 
     private void loadJSON() {
         Disconnected = (ImageView) findViewById(R.id.disconnected);
         try {
-            //swipeContainer.setRefreshing(true);
+            swipeContainer.setRefreshing(true);
             Client Client = new Client();
             Service apiService =
                     Client.getClient().create(Service.class);
@@ -104,10 +109,10 @@ public class Main2Activity extends AppCompatActivity
                 public void onResponse(Call<ItemResult> call, Response<ItemResult> response) {
                     List<Item> items = response.body().getPromoted();
                     recyclerView.setAdapter(new ItemAdapter(getApplicationContext(), items));
-                    recyclerView.smoothScrollToPosition(0);
+                    //recyclerView.smoothScrollToPosition(2);
                     swipeContainer.setRefreshing(false);
                     Disconnected.setVisibility(View.GONE);
-                    pd.hide();
+                   // pd.hide();
                     mInterstitialAd = new InterstitialAd(getApplicationContext());
                     mInterstitialAd.setAdUnitId(getString(R.string.admob_interstetial_ad));
                     AdRequest adRequest = new AdRequest.Builder().build();
@@ -127,7 +132,7 @@ public class Main2Activity extends AppCompatActivity
                     Toast.makeText(Main2Activity.this, R.string.error, Toast.LENGTH_SHORT).show();
                     Disconnected.setVisibility(View.VISIBLE);
                     swipeContainer.setRefreshing(false);
-                    pd.hide();
+                    //pd.hide();
 
                 }
             });
@@ -316,7 +321,7 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             Intent intent = new Intent(this, OffersActivity.class);
             startActivity(intent);
-            mInterstitialAd = new InterstitialAd(getApplicationContext());
+           /** mInterstitialAd = new InterstitialAd(getApplicationContext());
             mInterstitialAd.setAdUnitId(getString(R.string.admob_interstetial_ad));
             AdRequest adRequest = new AdRequest.Builder().build();
             mInterstitialAd.loadAd(adRequest);
@@ -326,7 +331,7 @@ public class Main2Activity extends AppCompatActivity
                         mInterstitialAd.show();
                     }
                 }
-            });
+            });**/
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
