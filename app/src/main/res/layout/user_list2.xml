@@ -3,24 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:clickable="true"
     android:focusable="true"
-    android:elevation="60dp"
+    android:elevation="5dp"
     app:cardElevation="5dp"
     app:cardCornerRadius="4dp"
     android:foreground="?android:attr/selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="250dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:padding="5dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
             android:id="@+id/cover2"
             android:src="@mipmap/ic_launcher_round" />
 
@@ -36,7 +36,9 @@
             android:textSize="15sp"
             android:textStyle="bold" />
         <TextView
-            android:layout_below="@+id/cover2"
+            android:layout_toEndOf="@+id/cover2"
+            android:layout_toRightOf="@+id/cover2"
+            android:layout_below="@+id/title2"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

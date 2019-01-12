@@ -1,4 +1,5 @@
 package com.app.android.june.cryptonewsoffers;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -6,14 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
 import com.app.android.june.cryptonewsoffers.model.Item;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Habeex on 4/20/2017.
@@ -59,13 +59,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
-        private CircleImageView imageView;
+        private ImageView imageView;
+       // ImageView null;
         private TextView titleDetail;
 
         public ViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
-            imageView = (CircleImageView) view.findViewById(R.id.cover);
+            imageView = (ImageView) view.findViewById(R.id.cover);
             titleDetail = (TextView)view.findViewById(R.id.titldetail);
 
             //on item click

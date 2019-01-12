@@ -7,14 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.android.june.cryptonewsoffers.model.Item2;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ItemAdapter2  extends RecyclerView.Adapter<ItemAdapter2.ViewHolder> {
     private List<Item2> Data;
@@ -56,13 +55,13 @@ public class ItemAdapter2  extends RecyclerView.Adapter<ItemAdapter2.ViewHolder>
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
-        private CircleImageView imageView;
+        private ImageView imageView;
         private TextView titleDetail;
 
         public ViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title2);
-            imageView = (CircleImageView) view.findViewById(R.id.cover2);
+            imageView = (ImageView) view.findViewById(R.id.cover2);
             titleDetail = (TextView)view.findViewById(R.id.titldetail2);
 
             //on Item2 click

@@ -6,8 +6,8 @@ android {
         applicationId "com.app.android.june.cryptonewsoffers"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 2
-        versionName "2.0"
+        versionCode 3
+        versionName "2.1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
