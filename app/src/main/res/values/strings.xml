@@ -17,8 +17,8 @@
     <string name="notification_on">Notification ON</string>
     <string name="notification_off">Notification OFF</string>
     <string name="error">Error Fetching Data!</string>
-    <string name="admob_interstitial_ad">ca-app-pub-6317011955622736/8491916154</string>
-    <string name="admob_interstetial_ad">ca-app-pub-6317011955622736/7645738343</string>
+    <string name="admob_interstitial_ad">ca-app-pub-7446083837533381/9583117808</string>
+    <string name="admob_interstetial_ad">ca-app-pub-7446083837533381/2181417730</string>
     <string name="web_client_id">962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com</string>
     <string name="login">Login</string>
 </resources>

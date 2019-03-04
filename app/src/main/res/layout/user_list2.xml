@@ -16,18 +16,23 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="250dp">
-
+        <android.support.v7.widget.CardView
+            app:cardElevation="5dp"
+            app:cardCornerRadius="5dp"
+            android:id="@+id/card2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
         <ImageView
             android:scaleType="centerCrop"
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:id="@+id/cover2"
             android:src="@mipmap/ic_launcher_round" />
-
+        </android.support.v7.widget.CardView>
         <TextView
-            android:layout_toEndOf="@+id/cover2"
-            android:layout_toRightOf="@+id/cover2"
-            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/card2"
+            android:layout_toRightOf="@+id/card2"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title2"
@@ -36,17 +41,17 @@
             android:textSize="15sp"
             android:textStyle="bold" />
         <TextView
-            android:layout_toEndOf="@+id/cover2"
-            android:layout_toRightOf="@+id/cover2"
+            android:layout_toEndOf="@+id/card2"
+            android:layout_toRightOf="@+id/card2"
             android:layout_below="@+id/title2"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/titldetail2"
             android:text="descrription"
             android:textColor="#403333"
             android:textSize="15sp"
-            android:lineSpacingExtra="5sp"/>
+            android:lineSpacingExtra="4sp"/>
 
 
     </RelativeLayout>

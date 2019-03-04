@@ -1,6 +1,5 @@
 package com.app.android.june.cryptonewsoffers;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +44,7 @@ public class Main2Activity extends AppCompatActivity
     AdView mAdView;
     InterstitialAd mInterstitialAd;
     ImageView Disconnected;
-    ProgressDialog pd;
+    //ProgressDialog pd;
     private SwipeRefreshLayout swipeContainer;
     DatabaseReference reference;
 
@@ -58,7 +57,7 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         //initViews();
         MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-6317011955622736~3267509637");
+                "ca-app-pub-7446083837533381~4348416075");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -88,13 +87,7 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         loadJSON();
     }
-    private void initViews() {
-        pd = new ProgressDialog(this);
-        pd.setMessage(getString(R.string.loading));
-        pd.setCancelable(false);
-        pd.show();
-        //loadJSON();
-    }
+
 
     private void loadJSON() {
         Disconnected = (ImageView) findViewById(R.id.disconnected);

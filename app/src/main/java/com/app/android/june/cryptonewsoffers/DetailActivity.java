@@ -32,7 +32,7 @@ public class DetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-6317011955622736~3267509637");
+                "ca-app-pub-7446083837533381~4348416075");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

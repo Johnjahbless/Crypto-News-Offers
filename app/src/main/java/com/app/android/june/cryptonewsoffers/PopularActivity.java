@@ -1,6 +1,5 @@
 package com.app.android.june.cryptonewsoffers;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -34,7 +33,7 @@ public class PopularActivity extends AppCompatActivity {
     InterstitialAd mInterstitialAd;
     private RecyclerView recyclerView2;
     ImageView Disconnected2;
-    ProgressDialog pd2;
+    //ProgressDialog pd2;
     private SwipeRefreshLayout swipeContainer2;
 
     @Override
@@ -43,14 +42,14 @@ public class PopularActivity extends AppCompatActivity {
         setContentView(R.layout.activity_popular);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       MobileAds.initialize(getApplicationContext(),"ca-app-pub-6317011955622736~3267509637");
+       MobileAds.initialize(getApplicationContext(),"ca-app-pub-7446083837533381~4348416075");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-       initViews();
-
+        recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView2.smoothScrollToPosition(0);
         swipeContainer2 = (SwipeRefreshLayout) findViewById(R.id.swipeContainer2);
-
         swipeContainer2.setColorSchemeResources(android.R.color.holo_orange_dark);
         swipeContainer2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -58,25 +57,14 @@ public class PopularActivity extends AppCompatActivity {
                 loadJSON();
             }
         });
-
-
-    }
-
-    private void initViews() {
-        pd2 = new ProgressDialog(this);
-        pd2.setMessage(getString(R.string.loading));
-        pd2.setCancelable(false);
-        pd2.show();
-        recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView2.smoothScrollToPosition(0);
         loadJSON();
+
     }
 
     private void loadJSON() {
         Disconnected2 = (ImageView) findViewById(R.id.disconnected2);
         try {
-            //swipeContainer.setRefreshing(true);
+            swipeContainer2.setRefreshing(true);
             Client2 Client2 = new Client2();
             Service2 apiService =
                     Client2.getClient2().create(Service2.class);
@@ -89,7 +77,7 @@ public class PopularActivity extends AppCompatActivity {
                     recyclerView2.smoothScrollToPosition(0);
                     swipeContainer2.setRefreshing(false);
                     Disconnected2.setVisibility(View.GONE);
-                    pd2.hide();
+                    //pd2.hide();
                     mInterstitialAd = new InterstitialAd(getApplicationContext());
                     mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_ad));
                     AdRequest adRequest = new AdRequest.Builder().build();
@@ -109,7 +97,7 @@ public class PopularActivity extends AppCompatActivity {
                     Toast.makeText(PopularActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                     Disconnected2.setVisibility(View.VISIBLE);
                     swipeContainer2.setRefreshing(false);
-                    pd2.hide();
+                   // pd2.hide();
 
                 }
             });
