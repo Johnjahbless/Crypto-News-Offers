@@ -33,7 +33,7 @@ public class NewsActivity extends AppCompatActivity {
     AdView mAdView;
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" +
-            "AAAA2v4SEzM:APA91bEhETxwoy4Aeex3PfgqkPHRMyS-YibbadHces3M0MFVrMJtlF6k5ELMK70sajF03Zge7MMgr-qkI67jCAgr5T8ot-0A7eD9WWnM8Mi70P1Bb5jfjRj9xUcpbwOUXagPNGwB7ixA";
+            " ";
     final private String contentType = "application/json";
     final String TAG = "NOTIFICATION TAG";
     private static final String SUBSCRIBE_TO = "userCRT";
