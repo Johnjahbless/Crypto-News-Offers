@@ -76,7 +76,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_favorite_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_exposure_plus_1_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -86,8 +86,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ff7224" />
-                            <entry key="outputName" value="ic_favorite" />
+                            <entry key="color" value="030303" />
+                            <entry key="outputName" value="ic_post" />
                             <entry key="sourceFile" value="C:\Users\U1" />
                           </map>
                         </option>

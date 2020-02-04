@@ -9,13 +9,13 @@ public class ItemResult2 {
     //get Data on APIData into List
     @SerializedName("Data")
     @Expose
-    private List<Item2> Data;
+    private List<Item> Data;
 
-    public List<Item2> getData() {
+    public List<Item> getData() {
         return Data;
     }
 
-    public void setData(List<Item2> Data) {
+    public void setData(List<Item> Data) {
         this.Data = Data;
     }
 }

@@ -2,13 +2,13 @@ package com.app.android.june.cryptonewsoffers;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.android.june.cryptonewsoffers.model.Item;
 import com.squareup.picasso.Picasso;
@@ -75,7 +75,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Promoted.get(pos).getHtmlUrl()));
+                        String title = Promoted.get(pos).getLogin();
+                        String detail = Promoted.get(pos).getTitleDetail();
+                        String imgUrl = Promoted.get(pos).getAvatarUrl();
+                        String htmlUrl = Promoted.get(pos).getHtmlUrl();
+                        String source = Promoted.get(pos).getSource();
+                        String date = Promoted.get(pos).getDate();
+                        String img = Promoted.get(pos).getImg();
+                        Intent intent = new Intent(v.getContext(), NewsActivity.class);
+                        intent.putExtra("title", title);
+                        intent.putExtra("detail", detail);
+                        intent.putExtra("imgUrl", imgUrl);
+                        intent.putExtra("htmlUrl", htmlUrl);
+                        intent.putExtra("source", source);
+                        intent.putExtra("date", date);
+                        intent.putExtra("img", img);
                         v.getContext().startActivity(intent);
                     }
                 }

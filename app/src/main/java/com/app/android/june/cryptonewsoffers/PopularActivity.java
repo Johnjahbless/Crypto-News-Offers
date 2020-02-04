@@ -1,19 +1,20 @@
 package com.app.android.june.cryptonewsoffers;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.app.android.june.cryptonewsoffers.apiData.Client2;
 import com.app.android.june.cryptonewsoffers.apiData.Service2;
-import com.app.android.june.cryptonewsoffers.model.Item2;
+import com.app.android.june.cryptonewsoffers.model.Item;
 import com.app.android.june.cryptonewsoffers.model.ItemResult2;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -42,7 +43,7 @@ public class PopularActivity extends AppCompatActivity {
         setContentView(R.layout.activity_popular);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       MobileAds.initialize(getApplicationContext(),"ca-app-pub-7446083837533381~4348416075");
+       MobileAds.initialize(getApplicationContext(),"ca-app-pub-3986775143456319~1819155348");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -72,7 +73,7 @@ public class PopularActivity extends AppCompatActivity {
             call.enqueue(new Callback<ItemResult2>() {
                 @Override
                 public void onResponse(Call<ItemResult2> call, Response<ItemResult2> response) {
-                    List<Item2> items = response.body().getData();
+                    List<Item> items = response.body().getData();
                     recyclerView2.setAdapter(new ItemAdapter2(getApplicationContext(), items));
                     recyclerView2.smoothScrollToPosition(0);
                     swipeContainer2.setRefreshing(false);

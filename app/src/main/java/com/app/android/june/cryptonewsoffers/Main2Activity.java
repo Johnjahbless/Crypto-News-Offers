@@ -2,23 +2,24 @@ package com.app.android.june.cryptonewsoffers;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.android.june.cryptonewsoffers.apiData.Client;
 import com.app.android.june.cryptonewsoffers.apiData.Service;
@@ -29,8 +30,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.List;
 
@@ -57,7 +60,7 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         //initViews();
         MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-7446083837533381~4348416075");
+                "ca-app-pub-3986775143456319~1819155348");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -86,9 +89,20 @@ public class Main2Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         loadJSON();
+        checkNotifi();
     }
 
+    private void checkNotifi() {
+        SharedPreferences sharedPreferences = getSharedPreferences("notify", MODE_PRIVATE);
+        Integer value = sharedPreferences.getInt("notifykey", 1);
+        if (value == 1){
+            //Toast.makeText(this, "Notification is on", Toast.LENGTH_SHORT).show();
+            FirebaseMessaging.getInstance().subscribeToTopic("userCRT");
 
+        }else {
+            Toast.makeText(this, "Notification is off", Toast.LENGTH_LONG).show();
+        }
+    }
     private void loadJSON() {
         Disconnected = (ImageView) findViewById(R.id.disconnected);
         try {
@@ -311,7 +325,10 @@ public class Main2Activity extends AppCompatActivity
                 }
             });
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_post){
+            Intent intent = new Intent(this, OffersActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_manage) {
             Intent intent = new Intent(this, OffersActivity.class);
             startActivity(intent);
            /** mInterstitialAd = new InterstitialAd(getApplicationContext());

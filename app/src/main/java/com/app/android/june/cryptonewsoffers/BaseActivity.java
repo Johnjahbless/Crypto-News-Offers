@@ -1,7 +1,7 @@
 package com.app.android.june.cryptonewsoffers;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.firebase.client.Firebase;

@@ -20,6 +20,11 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_offers"
             android:title="@string/offers" />
+
+        <item
+            android:id="@+id/nav_post"
+            android:icon="@drawable/ic_post"
+            android:title="@string/post_an_offer" />
     </group>
 
 </menu>

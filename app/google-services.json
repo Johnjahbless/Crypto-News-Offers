@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "940565467955",
+    "firebase_url": "https://bitcoin-ethereum-d734d.firebaseio.com",
+    "project_id": "bitcoin-ethereum-d734d",
+    "storage_bucket": "bitcoin-ethereum-d734d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940565467955:android:9aceac417458fa8565a446",
+        "android_client_info": {
+          "package_name": "com.app.android.june.bitcoinethereum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940565467955-o143oi2plhhv3bjth01ddeq5tj2g1oor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3pLUYqAlA83qd2QNFfmqKZOIk1NMlWMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940565467955-o143oi2plhhv3bjth01ddeq5tj2g1oor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940565467955:android:153fea4d64f7680765a446",
+        "android_client_info": {
+          "package_name": "com.app.android.june.cryptonewsoffers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940565467955-o143oi2plhhv3bjth01ddeq5tj2g1oor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3pLUYqAlA83qd2QNFfmqKZOIk1NMlWMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940565467955-o143oi2plhhv3bjth01ddeq5tj2g1oor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

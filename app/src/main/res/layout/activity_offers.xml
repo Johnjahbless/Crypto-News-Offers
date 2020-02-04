@@ -22,7 +22,7 @@
 
 </RelativeLayout>
     </ScrollView>
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -47,7 +47,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-7446083837533381/3323819452"/>
+            ads:adUnitId="ca-app-pub-3986775143456319/5566828664"/>
 
 </RelativeLayout>
         </RelativeLayout>
