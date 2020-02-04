@@ -21,13 +21,25 @@ public class Item {
     @SerializedName("body")
     @Expose
     private String titleDetail;
+    @SerializedName("source")
+    @Expose
+    private String source;
+    @SerializedName("published_on")
+    @Expose
+    private String date;
+    @SerializedName("img")
+    @Expose
+    private String img;
 
     //Create constructor
-    public Item(String login, String avatarUrl, String htmlUrl, String titleDetail) {
+    public Item(String login, String avatarUrl, String htmlUrl, String titleDetail, String source, String date, String img) {
         this.login = login;
         this.avatarUrl = avatarUrl;
         this.htmlUrl = htmlUrl;
         this.titleDetail = titleDetail;
+        this.source = source;
+        this.date = date;
+        this.img = img;
     }
 
     //use getter and setter to pass the item data
@@ -61,4 +73,27 @@ public class Item {
         this.titleDetail = titleDetail;
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

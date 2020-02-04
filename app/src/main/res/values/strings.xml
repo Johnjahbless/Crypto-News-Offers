@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Crypto News/Offers</string>
-    <string name="user_name">Username</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="trending">Trending</string>
@@ -11,14 +10,14 @@
     <string name="notifications">Notifications</string>
     <string name="exit_app">Exit App</string>
     <string name="latestnews">Latest News</string>
-    <string name="loading">Loading...</string>
     <string name="notification_title">Crypto News received</string>
     <string name="notification_text">You have Received new updates</string>
     <string name="notification_on">Notification ON</string>
     <string name="notification_off">Notification OFF</string>
     <string name="error">Error Fetching Data!</string>
-    <string name="admob_interstitial_ad">ca-app-pub-7446083837533381/9583117808</string>
-    <string name="admob_interstetial_ad">ca-app-pub-7446083837533381/2181417730</string>
-    <string name="web_client_id">962229545686-5ame6ce9mnrdfd6isvl8delt1k7uu80j.apps.googleusercontent.com</string>
+    <string name="admob_interstitial_ad">ca-app-pub-3986775143456319/9242990423</string>
+    <string name="admob_interstetial_ad">ca-app-pub-3986775143456319/9242990423</string>
+    <string name="web_client_id"> </string>
     <string name="login">Login</string>
+    <string name="post_an_offer">Post an offer</string>
 </resources>

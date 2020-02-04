@@ -7,21 +7,21 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +49,7 @@ InterstitialAd mInterstitialAd;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-7446083837533381~4348416075");
+                "ca-app-pub-3986775143456319~1819155348");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -183,17 +183,6 @@ InterstitialAd mInterstitialAd;
 
         if (id == android.R.id.home) {
             onBackPressed();
-            mInterstitialAd = new InterstitialAd(getApplicationContext());
-            mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_ad));
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mInterstitialAd.loadAd(adRequest);
-            mInterstitialAd.setAdListener(new AdListener() {
-                public void onAdLoaded() {
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    }
-                }
-            });
         }
         return super.onOptionsItemSelected(item);
 

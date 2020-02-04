@@ -4,9 +4,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -16,9 +13,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,10 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String email, fullName,password, confirmPassword, userId, idToken, gender;
     private ProgressDialog pDialog;
     private static final String TAG = "SignUpActivity";
-    InterstitialAd mInterstitialAd;
     FirebaseAuth mAuth;
-    private FirebaseUser user;
-    FirebaseAuth.AuthStateListener mAuthListner;
     DatabaseReference mDatabase;
     FirebaseDatabase firebaseDatabase;
 
@@ -45,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         etEmail = findViewById(R.id.email_field);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
@@ -57,8 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(RegisterActivity.this, SignActivity.class);
-                startActivity(i);
+               onBackPressed();
 
             }
         });
@@ -271,17 +266,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             onBackPressed();
-            mInterstitialAd = new InterstitialAd(getApplicationContext());
-            mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_ad));
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mInterstitialAd.loadAd(adRequest);
-            mInterstitialAd.setAdListener(new AdListener() {
-                public void onAdLoaded() {
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    }
-                }
-            });
+
         }
         return super.onOptionsItemSelected(item);
 

@@ -1,30 +1,24 @@
 package com.app.android.june.cryptonewsoffers;
 
-import android.app.AlarmManager;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.google.android.gms.ads.AdListener;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class DetailActivity extends AppCompatActivity {
     AdView mAdView;
-    InterstitialAd mInterstitialAd;
-    private NotificationManager mNotificationManager;
-
-    private static final int NOTIFICATION_ID = 0;
+    ToggleButton alarmToggle;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,27 +26,14 @@ public class DetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-7446083837533381~4348416075");
+                "ca-app-pub-3986775143456319~1819155348");
         mAdView = (AdView) findViewById(R.id.adVieww);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        final AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
+        alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
 
-        //Set up the Notification Broadcast Intent
-        Intent notifyIntent = new Intent(this, AlarmReceiver.class);
-
-        //Check if the Alarm is already set, and check the toggle accordingly
-        boolean alarmUp = (PendingIntent.getBroadcast(this, 0, notifyIntent,
-                PendingIntent.FLAG_NO_CREATE) != null);
-
-        alarmToggle.setChecked(alarmUp);
-
-        //Set up the PendingIntent for the AlarmManager
-        final PendingIntent notifyPendingIntent = PendingIntent.getBroadcast
-                (this, NOTIFICATION_ID, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        checkNotifi();
 
 
 
@@ -61,22 +42,19 @@ public class DetailActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 String toastMessage;
                 if(isChecked){
-
-                    long triggerTime = SystemClock.elapsedRealtime()
-                            + AlarmManager.INTERVAL_HOUR;
-
-                    long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
-
-                    //If the Toggle is turned on, set the repeating alarm with a 15 minute interval
-                    alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                            triggerTime, repeatInterval, notifyPendingIntent);
+                    SharedPreferences sharedPreferences = getSharedPreferences("notify", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("notifykey", 1);
+                    editor.apply();
 
                     //Set the toast message for the "on" case
                     toastMessage = getString(R.string.notification_on);
                 } else {
-                    //Cancel the alarm and notification if the alarm is turned off
-                    alarmManager.cancel(notifyPendingIntent);
-                    mNotificationManager.cancelAll();
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic("userCRT");
+                    SharedPreferences sharedPreferences = getSharedPreferences("notify", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("notifykey", 2);
+                    editor.apply();
 
                     //Set the toast message for the "off" case
                     toastMessage = getString(R.string.notification_off);
@@ -89,7 +67,22 @@ public class DetailActivity extends AppCompatActivity {
         });
 
 
-    }@Override
+    }
+
+    private void checkNotifi() {
+        SharedPreferences sharedPreferences = getSharedPreferences("notify", MODE_PRIVATE);
+        Integer value = sharedPreferences.getInt("notifykey", 1);
+        if (value == 1){
+            alarmToggle.setChecked(true);
+            FirebaseMessaging.getInstance().subscribeToTopic("userCRT");
+
+        }else {
+            Toast.makeText(this, "Notification is off", Toast.LENGTH_LONG).show();
+            alarmToggle.setChecked(false);
+        }
+    }
+
+    @Override
     public void onPause() {
         if (mAdView != null) {
             mAdView.pause();
@@ -124,17 +117,7 @@ public class DetailActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             onBackPressed();
-            mInterstitialAd = new InterstitialAd(getApplicationContext());
-            mInterstitialAd.setAdUnitId(getString(R.string.admob_interstetial_ad));
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mInterstitialAd.loadAd(adRequest);
-            mInterstitialAd.setAdListener(new AdListener() {
-                public void onAdLoaded() {
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    }
-                }
-            });
+
         }
         return super.onOptionsItemSelected(item);
 
