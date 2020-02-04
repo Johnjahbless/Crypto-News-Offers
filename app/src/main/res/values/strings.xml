@@ -17,7 +17,7 @@
     <string name="error">Error Fetching Data!</string>
     <string name="admob_interstitial_ad">ca-app-pub-3986775143456319/9242990423</string>
     <string name="admob_interstetial_ad">ca-app-pub-3986775143456319/9242990423</string>
-    <string name="web_client_id">940565467955-o143oi2plhhv3bjth01ddeq5tj2g1oor.apps.googleusercontent.com</string>
+    <string name="web_client_id"> </string>
     <string name="login">Login</string>
     <string name="post_an_offer">Post an offer</string>
 </resources>
